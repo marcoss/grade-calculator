@@ -1,0 +1,49 @@
+<div class="row">
+    <div class="col-md-6 mb-1">
+        {{!-- {{#if @first}}
+            <label class="label">grade items</label>
+        {{/if}} --}}
+
+        <input type="text" class="form-control" placeholder="grade item" value="{{title}}">
+    </div>
+
+    <div class="col-md-2 mb-1">
+        {{!-- {{#if @first}}
+            <label class="label">grades</label>
+        {{/if}} --}}
+
+        <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="grade" aria-label="grade" aria-describedby="basic-addon1">
+            <div class="input-group-prepend">
+            <span class="input-group-text">%</span>
+        </div>
+        </div>
+
+
+        {{!-- <input type="text" class="form-control" placeholder="grade" value="{{grade}}"> --}}
+    </div>
+
+    <div class="col-md-2 mb-1">
+        {{!-- {{#if @first}}
+            <label class="label">weights</label>
+        {{/if}} --}}
+
+        {{!-- <input type="text" class="form-control" placeholder="weight" value="{{weight}}"> --}}
+
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="weight" aria-label="grade" aria-describedby="basic-addon1">
+            <div class="input-group-prepend">
+                <span class="input-group-text">%</span>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-2 mb-1">
+        {{!-- {{#if @first}}
+            <label class="label">actions</label>
+        {{/if}} --}}
+        
+        <button type="button" class="btn btn-outline-danger btn-block" data-index={{@index}}>delete</button>
+    </div>
+</div>

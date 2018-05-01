@@ -1,0 +1,30 @@
+<header class="py-3 text-center">
+    <h2>{{title}}</h2>
+</header>
+
+<div class="container card bg-{{gradeColor}} text-white text-center">
+    <div class="card-body">
+        <h3>{{grade}}%</h3>
+    </div>
+
+</div>
+
+<br>
+
+<div class="container card p-3 m-0">
+    {{#grades}}
+        {{> row}}
+    {{/grades}}
+    <hr>
+
+    <div class="row">
+        <div class="col-md-10 mb-1">
+            <button type="button" id="add-row" class="btn btn-primary btn-block" data-index={{@index}}>add row</button>
+        </div>
+
+        <div class="col-md-2 mb-1">
+            <button type="button" id="reset-all" class="btn btn-danger btn-block" data-index={{@index}}>reset all</button>
+        </div>
+    </div>
+
+</div>
