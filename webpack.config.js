@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     entry: './src',
     output: {
-        path: path.resolve(__dirname, 'docs'),
+        path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
     },
     module: {
@@ -22,5 +22,9 @@ module.exports = {
                 loader: "handlebars-loader"
             }
         ]
-    }
+    },
+    devServer: {
+        contentBase: path.resolve(__dirname, './'),
+        publicPath: path.resolve(__dirname, '/dist/'),
+    },
 };
