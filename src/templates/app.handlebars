@@ -1,20 +1,7 @@
-<header class="py-3 text-center">
-    <h2>{{title}}</h2>
-</header>
-
-<div class="container card bg-{{gradeColor}} text-white text-center">
-    <div class="card-body">
-        <h3>{{grade}}%</h3>
-    </div>
-
-</div>
-
-<br>
-
 <div class="container card p-3 m-0">
-    {{#grades}}
+    {{#items}}
         {{> row}}
-    {{/grades}}
+    {{/items}}
     <hr>
 
     <div class="row">
