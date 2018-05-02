@@ -6,7 +6,7 @@ const template = require('./templates/app.handlebars');
 
 // Internal
 let grades = [{}, {}, {}, {}];
-let grade = 0.00;
+let grade = 90.00;
 
 // Initialization
 document.addEventListener('DOMContentLoaded', function () {
@@ -19,6 +19,11 @@ const addRow = function () {
     render();
 };
 
+const deleteRow = function (e) {
+    const index = e.target.attributes.getNamedItem('data-index').value;
+    grades.splice(index, 1);
+    render();
+}
 const resetRows = function () {
     grades = [{}, {}, {}, {}];
     render();
@@ -29,6 +34,13 @@ const bindElements = function () {
     var resetButton = document.getElementById('reset-all');
     addRowButton.onclick = addRow;
     resetButton.onclick = resetRows;
+
+    const deleteRows = document.querySelectorAll("#delete-row");
+    for (i = 0; i < deleteRows.length; i++) {
+        deleteRows[i].onclick = deleteRow;
+    }
+
+    // deleteRows.onclick = addRow;
 };
 
 const render = function () {
@@ -50,5 +62,7 @@ const getGradeColor = function () {
         return 'secondary';
     } else if (grade < 40) {
         return 'danger';
+    } else {
+        return 'success';
     }
 }

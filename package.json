@@ -5,7 +5,6 @@
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^4.1.1",
-    "bulma": "^0.7.1",
     "handlebars": "^4.0.11",
     "handlebars-loader": "^1.7.0"
   },
