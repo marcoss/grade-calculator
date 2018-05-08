@@ -8,6 +8,7 @@ const template = require('./templates/app.handlebars');
 // Instance vars
 let gradeItems;
 let grade;
+let totalWeight;
 
 /**
  * Initialization on document load.
@@ -15,6 +16,7 @@ let grade;
 document.addEventListener('DOMContentLoaded', function () {
     gradeItems = [{}, {}, {}, {}];
     grade = 0.00;
+    totalWeight = 0;
 
     render(true);
 });
@@ -98,16 +100,26 @@ const calculateGrade = function () {
     let temp = 0.0;
     let n = 0;
 
+    let weights = 0;
+
     for (i = 0; i < gradeItems.length; i++) {
         if (gradeItems[i].grade) {
-            console.log(gradeItems[i].grade);
-            temp += parseInt(gradeItems[i].grade);
+            // Set to default weight
+            if (!gradeItems[i].weight) {
+                gradeItems[i].weight = 100;
+            }
+    
+            weights += parseFloat(gradeItems[i].weight);
+            temp += parseInt(gradeItems[i].grade) * (parseFloat(gradeItems[i].weight)/100.0);
             n++;
         }
     }
 
+    // Set total weight
+    totalWeight = weights;
+
     if (n > 0) {
-        grade = (temp / n).toFixed(2);
+        grade = (temp).toFixed(2);
     } else {
         grade = 0.0;
     }
@@ -138,6 +150,7 @@ const _renderHeader = function () {
     header.innerHTML = headerTemplate({
         title: 'grade calculator',
         grade: grade,
+        weights: totalWeight,
         gradeColor: getGradeColor(grade),
     });
 };

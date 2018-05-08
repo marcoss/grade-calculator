@@ -1,44 +1,44 @@
 {{#if @first}}
 <div class="row">
-    <div class="col-md-6 mb-1">
-        <label class="label text-secondary">grade items</label>
+    <div class="col-6 col-sm-3 mb-1 d-none d-sm-block">
+        <label class="label text-secondary">items</label>
     </div>
-    <div class="col-md-2 mb-1">
+    <div class="col-2 col-sm-3 mb-1 d-none d-sm-block">
         <label class="label text-secondary">grades</label>
     </div>
-    <div class="col-md-2 mb-1">
+    <div class="col-2 col-sm-3 mb-1 d-none d-sm-block">
         <label class="label text-secondary">weights</label>
     </div>
-    <div class="col-md-2 mb-1">
+    <div class="col-2 col-sm-3 mb-1 d-none d-sm-block">
         <label class="label text-secondary">actions</label>
     </div>
 </div>
 {{/if}}
 
 <div class="row">
-    <div class="col-md-6 mb-1">
-        <input type="text" class="user-input form-control" placeholder="grade item" value="{{title}}" data-attribute="title" data-index={{@index}}>
+    <div class="col-sm mb-1">
+        <input type="text" class="user-input form-control" placeholder="Item" value="{{title}}" data-attribute="title" data-index={{@index}}>
     </div>
 
-    <div class="col-md-2 mb-1">
+    <div class="col-sm mb-1">
         <div class="input-group mb-3">
-        <input type="number" min="0" max="100" pattern="[0-9]*" class="user-input form-control" placeholder="grade" value="{{grade}}" data-attribute="grade" data-index={{@index}}>
+        <input type="number" min="0" max="100" pattern="[0-9]*" class="user-input form-control" placeholder="Grade" value="{{grade}}" data-attribute="grade" data-index={{@index}}>
             <div class="input-group-prepend">
             <span class="input-group-text">%</span>
         </div>
         </div>
     </div>
 
-    <div class="col-md-2 mb-1">
+    <div class="col-sm mb-1">
         <div class="input-group">
-            <input type="number" min="0" max="100" pattern="[0-9]*" class="user-input form-control" placeholder="weight" value="{{weight}}" data-attribute="weight" data-index={{@index}}>
+            <input type="number" min="0" max="100" pattern="[0-9]*" class="user-input form-control" placeholder="Weight" value="{{weight}}" data-attribute="weight" data-index={{@index}}>
             <div class="input-group-prepend">
                 <span class="input-group-text">%</span>
             </div>
         </div>
     </div>
 
-    <div class="col-md-2 mb-1">
+    <div class="col-sm mb-1">
         <button type="button" class="btn btn-outline-danger btn-block delete-row" data-index={{@index}}>delete</button>
     </div>
 </div>

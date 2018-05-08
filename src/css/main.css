@@ -1,5 +1,24 @@
 .label {
     font-weight: 700;
-    letter-spacing: 0.1em;
-    font-size: 1.0em;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    font-size: 0.9em;
+}
+
+.weight-label {
+    font-weight: 500;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+h2 {
+    text-align: left;
+    font-size: 1.7em;
+    font-weight: 700;
+}
+
+.btn {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.9em;
 }
