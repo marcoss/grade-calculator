@@ -5,6 +5,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
+        chunkFilename: 'vendor.js',
     },
     module: {
         rules: [{
@@ -27,4 +28,15 @@ module.exports = {
         contentBase: path.resolve(__dirname, './'),
         publicPath: path.resolve(__dirname, '/dist/'),
     },
+    optimization: {
+        splitChunks: {
+            cacheGroups: {
+                commons: {
+                    test: /[\\/]node_modules[\\/]/,
+                    name: "vendors",
+                    chunks: "all"
+                }
+            }
+        }
+    }
 };
