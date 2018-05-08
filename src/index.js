@@ -14,7 +14,9 @@ let totalWeight;
  * Initialization on document load.
  */
 document.addEventListener('DOMContentLoaded', function () {
-    gradeItems = [{}, {}, {}, {}];
+    // Load cache if in memory
+    let cache = localStorage.getItem('gradeItems');
+    gradeItems = cache ? JSON.parse(cache) : [{}, {}, {}, {}];
     grade = 0.00;
     totalWeight = 0;
 
@@ -70,6 +72,9 @@ const inputChanged = function (e) {
             render();
             break;
     }
+
+    // Save to local cache
+    cacheData();
 }
 
 /**
@@ -137,6 +142,13 @@ const render = function (renderRows) {
 
     // Render only grade header
     _renderHeader();
+};
+
+/**
+ * Cache grade items to local storage.
+ */
+const cacheData = function () {
+    localStorage.setItem('gradeItems', JSON.stringify(gradeItems));
 };
 
 /**
