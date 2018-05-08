@@ -110,7 +110,7 @@ const calculateGrade = function () {
             }
     
             weights += parseFloat(gradeItems[i].weight);
-            temp += parseInt(gradeItems[i].grade) * (parseFloat(gradeItems[i].weight)/100.0);
+            temp += parseInt(gradeItems[i].grade) * (parseFloat(gradeItems[i].weight) / 100.0);
             n++;
         }
     }
@@ -119,7 +119,7 @@ const calculateGrade = function () {
     totalWeight = weights;
 
     if (n > 0) {
-        grade = (temp).toFixed(2);
+        grade = ((temp/weights) * 100.0).toFixed(2);
     } else {
         grade = 0.0;
     }
