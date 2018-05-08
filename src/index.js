@@ -99,7 +99,6 @@ const bindElements = function () {
 const calculateGrade = function () {
     let temp = 0.0;
     let n = 0;
-
     let weights = 0;
 
     for (i = 0; i < gradeItems.length; i++) {
@@ -108,10 +107,10 @@ const calculateGrade = function () {
             if (!gradeItems[i].weight) {
                 gradeItems[i].weight = 100;
             }
-    
+
             weights += parseFloat(gradeItems[i].weight);
             temp += parseInt(gradeItems[i].grade) * (parseFloat(gradeItems[i].weight) / 100.0);
-            n++;
+            n += 1;
         }
     }
 
@@ -119,7 +118,7 @@ const calculateGrade = function () {
     totalWeight = weights;
 
     if (n > 0) {
-        grade = ((temp/weights) * 100.0).toFixed(2);
+        grade = ((temp / weights) * 100.0).toFixed(2);
     } else {
         grade = 0.0;
     }
