@@ -28,6 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
  */
 const addRow = function () {
     gradeItems.push({});
+
+    // Save to local cache
+    cacheData();
+
     render(true);
 };
 
@@ -38,6 +42,10 @@ const addRow = function () {
 const deleteRow = function (e) {
     const index = e.target.attributes.getNamedItem('data-index').value;
     gradeItems.splice(index, 1);
+
+    // Save to local cache
+    cacheData();
+
     render(true);
 }
 
@@ -47,6 +55,10 @@ const deleteRow = function (e) {
 const resetRows = function () {
     gradeItems = [{}, {}, {}, {}];
     grade = 0.0;
+
+    // Save to local cache
+    cacheData();
+
     render(true);
 };
 
