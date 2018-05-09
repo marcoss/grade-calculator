@@ -11,10 +11,20 @@ let grade;
 let totalWeight;
 
 /**
- * Event before browser is unloaded from memory.
+ * Page visibility event change.
  */
-window.addEventListener('beforeunload', function () {
-    // Cache data before close
+document.addEventListener('visibilitychange', function () {
+    // Save to cache before close
+    if (document.visibilityState == 'hidden') {
+        cacheData();
+    }
+});
+
+/**
+ * Page hide event change.
+ */
+window.addEventListener('pagehide', function () {
+    // Save to cache before close
     cacheData();
 });
 
