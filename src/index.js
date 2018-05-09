@@ -11,6 +11,14 @@ let grade;
 let totalWeight;
 
 /**
+ * Event before browser is unloaded from memory.
+ */
+window.addEventListener('beforeunload', function () {
+    // Cache data before close
+    cacheData();
+});
+
+/**
  * Initialization on document load.
  */
 document.addEventListener('DOMContentLoaded', function () {
@@ -28,10 +36,6 @@ document.addEventListener('DOMContentLoaded', function () {
  */
 const addRow = function () {
     gradeItems.push({});
-
-    // Save to local cache
-    cacheData();
-
     render(true);
 };
 
@@ -43,9 +47,6 @@ const deleteRow = function (e) {
     const index = e.target.attributes.getNamedItem('data-index').value;
     gradeItems.splice(index, 1);
 
-    // Save to local cache
-    cacheData();
-
     render(true);
 }
 
@@ -55,9 +56,6 @@ const deleteRow = function (e) {
 const resetRows = function () {
     gradeItems = [{}, {}, {}, {}];
     grade = 0.0;
-
-    // Save to local cache
-    cacheData();
 
     render(true);
 };
@@ -84,9 +82,6 @@ const inputChanged = function (e) {
             render();
             break;
     }
-
-    // Save to local cache
-    cacheData();
 }
 
 /**
@@ -98,13 +93,13 @@ const bindElements = function () {
     addRowButton.onclick = addRow;
     resetButton.onclick = resetRows;
 
-    const deleteRows = document.querySelectorAll(".delete-row");
+    const deleteRows = document.querySelectorAll('.delete-row');
     for (i = 0; i < deleteRows.length; i++) {
         deleteRows[i].onclick = deleteRow;
     }
 
     // User inputs
-    const inputs = document.querySelectorAll(".user-input");
+    const inputs = document.querySelectorAll('.user-input');
     for (i = 0; i < inputs.length; i++) {
         inputs[i].onkeyup = inputChanged;
     }
